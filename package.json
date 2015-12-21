@@ -1,15 +1,23 @@
 {
-  "name": "animated-scrollto",
-  "version": "1.1.0",
+  "name": "scrollToWithAnimation",
+  "version": "1.0.0",
   "description": "Animated scrolling without any dependency on libraries",
-  "main": "animatedScrollTo.js",
+  "main": "scrollToWithAnimation.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/madebysource/animated-scrollto"
+    "url": "https://github.com/davesnx/scrollToWithAnimation"
   },
   "bugs": {
-    "url": "https://github.com/madebysource/animated-scrollto/issues"
+    "url": "https://github.com/davesnx/scrollToWithAnimation/issues"
   },
-  "author": "Marek Hrabe <marekhrabe@abdoc.net> (https://github.com/marekhrabe)",
+  "keywords": [
+   "animation",
+   "requestAnimationFrame",
+   "cross-browser",
+   "setTimeout",
+   "easeInQuad",
+   "browserify"
+  ],
+  "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "license": "MIT"
 }
