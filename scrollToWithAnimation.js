@@ -138,6 +138,8 @@
       eq = findAnimation(transition)
     } else if (typeof transition === 'function') {
       eq = defineAnimation(transition)
+    } else if (transition === null)
+      eq = findAnimation('easeInQuad')
     } else {
       throw new TypeError('scrollToWithAnimation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
     }
