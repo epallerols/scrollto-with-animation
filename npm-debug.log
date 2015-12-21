@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/davesnx/.nvm/versions/node/v5.1.0/bin/node',
+1 verbose cli   '/Users/davesnx/.nvm/versions/node/v5.1.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.3.12
+3 info using node@v5.1.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/davesnx/Desktop/animated-scrollto',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package.tgz not in flight; packing
+9 info lifecycle scrollToWithAnimation@1.0.0~prepublish: scrollToWithAnimation@1.0.0
+10 silly lifecycle scrollToWithAnimation@1.0.0~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package.tgz',
+11 verbose tar pack   '/Users/davesnx/Desktop/animated-scrollto' ]
+12 verbose tarball /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package.tgz
+13 verbose folder /Users/davesnx/Desktop/animated-scrollto
+14 verbose addLocalTarball adding from inside cache /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package.tgz
+15 silly cache afterAdd scrollToWithAnimation@1.0.0
+16 verbose afterAdd /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package/package.json not in flight; writing
+17 verbose afterAdd /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package/package.json written
+18 silly publish { name: 'scrollToWithAnimation',
+18 silly publish   version: '1.0.0',
+18 silly publish   description: 'Animated scrolling without any dependency on libraries',
+18 silly publish   main: 'scrollToWithAnimation.js',
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+https://github.com/davesnx/scrollToWithAnimation.git' },
+18 silly publish   bugs: { url: 'https://github.com/davesnx/scrollToWithAnimation/issues' },
+18 silly publish   keywords:
+18 silly publish    [ 'animation',
+18 silly publish      'requestAnimationFrame',
+18 silly publish      'cross-browser',
+18 silly publish      'setTimeout',
+18 silly publish      'easeInQuad',
+18 silly publish      'browserify' ],
+18 silly publish   author:
+18 silly publish    { name: 'David Sancho',
+18 silly publish      email: 'dsnxmoreno@gmail.com',
+18 silly publish      url: 'https://github.com/davesnx' },
+18 silly publish   license: 'MIT',
+18 silly publish   readme: '# scrollToWithAnimation\nThis is a simple function for animating scroll that can define a easing equation function.\n\n- No dependency on extra libraries.\n- Available adding script or browserify\n- Cross-browser.\n- 60 FPS Animation.\n- If user scrolls while animation is running, scroll animation would be immediately canceled.\n\n## Install\n\n`npm install scrollToWithAnimation --save`\n\n## Usage\n\n### Available with browserify\n\n```javascript\nvar scrollToWithAnimation = require(\'scrollToWithAnimation\')\n```\n\n### available as a script\n\n```html\n<script src="scrollToWithAnimation.js"></script>\n```\n\n### Example\n\n```javascript\nscrollToWithAnimation(\n    document.body, // element to scroll\n    0, // target scrollY (0 means top of the page)\n    10000, // duration in ms\n    \'easeInOutCirc\', /*\n        Can be a name of the list of \'Posible easing equations\' or a callback\n        that defines the ease. #\n    */\n    function() { // callback function that runs after the animation (optional)\n      console.log(\'done!\')\n    }\n);\n```\n\nThis will scroll to top of the page and the animation will run for 10 seconds (10000ms).\n\n\n## Options\n\n## Posible easings equations\n\n- `linearTween`\n- `easeInQuad`\n- `easeOutQuad`\n- `easeInOutQuad`\n- `easeInCubic`\n- `easeOutCubic`\n- `easeInOutCubic`\n- `easeInQuart`\n- `easeOutQuart`\n- `easeInOutQuart`\n- `easeInQuint`\n- `easeOutQuint`\n- `easeInOutQuint`\n- `easeInSine`\n- `easeOutSine`\n- `easeInOutSine`\n- `easeInExpo`\n- `easeOutExpo`\n- `easeInOutExpo`\n- `easeInCirc`\n- `easeOutCirc`\n- `easeInOutCirc`\n\n## License\n\nMIT\n\n## Thanks\n\n##### Thanks to [madebysource/animated-scrollto](https://github.com/madebysource/animated-scrollto), for the base of the animated, I just added the possibility of define the equation or chose a existing one.\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: 'd580509edc48597df54a9c46ccfa255c356478a4',
+18 silly publish   homepage: 'https://github.com/davesnx/scrollToWithAnimation#readme',
+18 silly publish   _id: 'scrollToWithAnimation@1.0.0',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: '24bea7158024b501233f9f7f92edcfe0fbc7de5b',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name scrollToWithAnimation
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/scrollToWithAnimation
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/davesnx/.npm/scrollToWithAnimation/1.0.0/package.tgz
+26 verbose request uri https://registry.npmjs.org/scrollToWithAnimation
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 00:01:18
+29 verbose request using bearer token for auth
+30 verbose request id 57dfefc2ac6201f1
+31 http request PUT https://registry.npmjs.org/scrollToWithAnimation
+32 http 400 https://registry.npmjs.org/scrollToWithAnimation
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '54',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Mon, 21 Dec 2015 23:01:20 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-lcy1125-LCY',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1450738878.999685,VS0,VE1104' }
+34 verbose request invalidating /Users/davesnx/.npm/registry.npmjs.org/scrollToWithAnimation on PUT
+35 error publish Failed PUT 400
+36 verbose stack Error: name can no longer contain capital letters : scrollToWithAnimation
+36 verbose stack     at makeError (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/Users/davesnx/.nvm/versions/node/v5.1.0/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 400
+38 verbose pkgid scrollToWithAnimation
+39 verbose cwd /Users/davesnx/Desktop/animated-scrollto
+40 error Darwin 14.5.0
+41 error argv "/Users/davesnx/.nvm/versions/node/v5.1.0/bin/node" "/Users/davesnx/.nvm/versions/node/v5.1.0/bin/npm" "publish"
+42 error node v5.1.0
+43 error npm  v3.3.12
+44 error code E400
+45 error name can no longer contain capital letters : scrollToWithAnimation
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
