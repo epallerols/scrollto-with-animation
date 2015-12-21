@@ -28,21 +28,22 @@ var scrollToWithAnimation = require('scrollToWithAnimation')
 ### Example
 
 ```javascript
-button.addEventListener('click', function () {
-    scrollToWithAnimation(
-        document.body, // element to scroll
-        0, // target scrollY (0 means top of the page)
-        10000, // duration in ms
-        'easeInOutCirc', /*
-            Can be a name of the list of 'Posible easing equations' or a callback
-            that defines the ease.
-        */
-        function() { // callback function that runs after the animation (optional)
-          console.log('done!')
-        }
-    );
-});
+scrollToWithAnimation(
+    document.body, // element to scroll
+    0, // target scrollY (0 means top of the page)
+    10000, // duration in ms
+    'easeInOutCirc', /*
+        Can be a name of the list of 'Posible easing equations' or a callback
+        that defines the ease. #
+    */
+    function() { // callback function that runs after the animation (optional)
+      console.log('done!')
+    }
+);
 ```
+
+This will scroll to top of the page and the animation will run for 10 seconds (10000ms).
+
 
 ## Options
 
@@ -70,9 +71,6 @@ button.addEventListener('click', function () {
 - `easeInCirc`
 - `easeOutCirc`
 - `easeInOutCirc`
-
-
-This will scroll to top of the page and the animation will run for 10 seconds (10000ms).
 
 ## License
 
