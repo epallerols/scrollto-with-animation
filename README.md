@@ -1,4 +1,4 @@
-# scrollToWithAnimation
+# scrollto-with-animation
 This is a simple function for animating scroll that can define a easing equation function.
 
 - No dependency on extra libraries.
@@ -16,13 +16,13 @@ This is a simple function for animating scroll that can define a easing equation
 ### Available with browserify
 
 ```javascript
-var scrollToWithAnimation = require('scrollToWithAnimation')
+var scrollToWithAnimation = require('scrollto-with-animation')
 ```
 
 ### available as a script
 
 ```html
-<script src="scrollToWithAnimation.js"></script>
+<script src="scrollto-with-animation.js"></script>
 ```
 
 ### Example
