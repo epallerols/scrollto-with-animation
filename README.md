@@ -9,7 +9,9 @@ This is a simple function for animating scroll that can define a easing equation
 
 ## Install
 
-`npm install scrollToWithAnimation --save`
+```bash
+npm install scrollto-with-animation --save
+```
 
 ## Usage
 
@@ -19,7 +21,7 @@ This is a simple function for animating scroll that can define a easing equation
 var scrollToWithAnimation = require('scrollto-with-animation')
 ```
 
-### available as a script
+### or available as a script
 
 ```html
 <script src="scrollto-with-animation.js"></script>
@@ -34,7 +36,7 @@ scrollToWithAnimation(
     10000, // duration in ms
     'easeInOutCirc', /*
         Can be a name of the list of 'Posible easing equations' or a callback
-        that defines the ease. #
+        that defines the ease. # http://gizma.com/easing/
     */
     function() { // callback function that runs after the animation (optional)
       console.log('done!')
