@@ -4,7 +4,7 @@
   "description": "Animated scrolling without any dependency on libraries",
   "main": "scrollto-with-animation.min.js",
   "script": {
-    "compress": "uglifyjs scrollto-with-animation.js > scrollto-with-animation.min.js"
+    "prepublish": "uglifyjs scrollto-with-animation.js > scrollto-with-animation.min.js"
   },
   "repository": {
     "type": "git",
