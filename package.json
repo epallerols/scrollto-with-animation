@@ -1,6 +1,6 @@
 {
   "name": "scrollto-with-animation",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Animated scrolling without any dependency on libraries",
   "main": "scrollto-with-animation.min.js",
   "script": {
