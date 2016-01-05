@@ -1,14 +1,41 @@
-;(function (window) {
-  var requestAnimFrame = (function () {
-    return
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      function (callback) {
-        window.setTimeout(callback, 1000 / 60)
-      }
-  })()
+(function (window) {
+  var lastTime = 0
+  var vendors = 'ms moz webkit o'.split(' ')
+
+  var requestAnimationFrame = window.requestAnimationFrame
+  var cancelAnimationFrame = window.cancelAnimationFrame
+
+  var prefix
+  var venlength = vendors.length
+
+  for (var i = 0; i < venlength; i++) {
+    if (requestAnimationFrame && cancelAnimationFrame) {
+      break
+    }
+    prefix = vendors[i]
+    requestAnimationFrame = requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
+    cancelAnimationFrame = cancelAnimationFrame || window[prefix + 'CancelAnimationFrame'] ||
+      window[prefix + 'CancelRequestAnimationFrame']
+  }
+
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = function (callback, element) {
+      var currTime = new Date().getTime()
+      var timeToCall = Math.max(0, 16 - (currTime - lastTime))
+      var id = window.setTimeout(function () {
+        callback(currTime + timeToCall)
+      }, timeToCall)
+      lastTime = currTime + timeToCall
+      return id
+    }
+  }
+
+  if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function (id) {
+      clearTimeout(id)
+    }
+  }
+
 
   var easings = {
     linearTween: function (t, b, c, d) {
@@ -122,7 +149,7 @@
 
   var defineAnimation = function (transition) {
     if (transition.length !== 4) {
-      throw new TypeError('scrollToWithAnimation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError("scrollToWithAnimation: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation")
     } else {
       return transition
     }
@@ -143,14 +170,14 @@
     } else if (transition === null) {
       eq = findAnimation('easeInQuad')
     } else {
-      throw new TypeError('scrollToWithAnimation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError("scrollToWithAnimation: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation")
     }
 
     var animateScroll = function () {
       if (!animating) {
         return
       }
-      requestAnimFrame(animateScroll)
+      requestAnimationFrame(animateScroll)
       var now = +new Date()
       var val = Math.floor(eq(now - animationStart, start, change, duration))
       if (lastpos) {
@@ -172,7 +199,7 @@
         }
       }
     }
-    requestAnimFrame(animateScroll)
+    requestAnimationFrame(animateScroll)
   }
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
@@ -180,4 +207,4 @@
   } else {
     window.scrollToWithAnimation = scrollToWithAnimation
   }
-})(window)
+}(window))
