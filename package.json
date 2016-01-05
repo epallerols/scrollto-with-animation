@@ -1,10 +1,11 @@
 {
   "name": "scrollto-with-animation",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Animated scrolling without any dependency on libraries",
-  "main": "scrollto-with-animation.min.js",
-  "script": {
-    "prepublish": "uglifyjs scrollto-with-animation.js > scrollto-with-animation.min.js"
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "browserify src/scrollto-with-animation.js | uglifyjs -cm > dist/bundle.js",
+    "prepublish": "rm -rf dist/bundle.js && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,9 @@
   "license": "MIT",
   "dependencies": {
     "animation-frame": "^0.2.5"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "uglify-js": "^2.6.1"
   }
 }
