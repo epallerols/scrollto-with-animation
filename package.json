@@ -22,5 +22,8 @@
     "browserify"
   ],
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "animation-frame": "^0.2.5"
+  }
 }

@@ -1,42 +1,4 @@
 (function (window) {
-  var lastTime = 0
-  var vendors = 'ms moz webkit o'.split(' ')
-
-  var requestAnimationFrame = window.requestAnimationFrame
-  var cancelAnimationFrame = window.cancelAnimationFrame
-
-  var prefix
-  var venlength = vendors.length
-
-  for (var i = 0; i < venlength; i++) {
-    if (requestAnimationFrame && cancelAnimationFrame) {
-      break
-    }
-    prefix = vendors[i]
-    requestAnimationFrame = requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
-    cancelAnimationFrame = cancelAnimationFrame || window[prefix + 'CancelAnimationFrame'] ||
-      window[prefix + 'CancelRequestAnimationFrame']
-  }
-
-  if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = function (callback, element) {
-      var currTime = new Date().getTime()
-      var timeToCall = Math.max(0, 16 - (currTime - lastTime))
-      var id = window.setTimeout(function () {
-        callback(currTime + timeToCall)
-      }, timeToCall)
-      lastTime = currTime + timeToCall
-      return id
-    }
-  }
-
-  if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = function (id) {
-      clearTimeout(id)
-    }
-  }
-
-
   var easings = {
     linearTween: function (t, b, c, d) {
       return c * t / d + b
@@ -177,7 +139,7 @@
       if (!animating) {
         return
       }
-      requestAnimationFrame(animateScroll)
+      window.AnimationFrame(animateScroll)
       var now = +new Date()
       var val = Math.floor(eq(now - animationStart, start, change, duration))
       if (lastpos) {
@@ -199,7 +161,7 @@
         }
       }
     }
-    requestAnimationFrame(animateScroll)
+    window.AnimationFrame(animateScroll)
   }
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
