@@ -104,17 +104,15 @@
     var animation = easings[transition]
     if (animation === undefined) {
       throw new Error('scrollToWithAnimation: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
-    } else {
-      return animation
     }
+    return animation
   }
 
   var defineAnimation = function (transition) {
     if (transition.length !== 4) {
       throw new TypeError("scrollToWithAnimation: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation")
-    } else {
-      return transition
     }
+    return transition
   }
 
   var scrollToWithAnimation = function (element, to, duration, transition, callback) {
