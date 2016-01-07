@@ -4,8 +4,7 @@
   "description": "Animated scrolling without any dependency on libraries",
   "main": "dist/bundle.js",
   "scripts": {
-    "build": "browserify src/scrollto-with-animation.js | uglifyjs -cm > dist/bundle.js",
-    "prepublish": "rm -rf dist/bundle.js && npm run build"
+    "prepublish": "browserify src/scrollto-with-animation.js | uglifyjs -cm > dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -30,8 +29,5 @@
   "devDependencies": {
     "browserify": "^12.0.1",
     "uglify-js": "^2.6.1"
-  },
-  "files": [
-    "dist/bundle.js"
-  ]
+  }
 }

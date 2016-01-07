@@ -29,7 +29,6 @@ results
 
 node_modules
 npm-debug.log
-json-schemas
 
 build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 
