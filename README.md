@@ -1,11 +1,11 @@
 # scrollto-with-animation
 This is a simple function for animating scroll that can define a easing equation function.
 
-- No dependency on extra libraries.
-- Available adding script or browserify
+- Only one dependency (for the [polyfill](https://www.npmjs.com/package/animation-frame))
 - Cross-browser.
 - 60 FPS Animation.
 - If user scrolls while animation is running, scroll animation would be immediately canceled.
+- Available adding script or browserify
 
 ## Install
 

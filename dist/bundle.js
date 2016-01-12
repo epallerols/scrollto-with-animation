@@ -327,7 +327,7 @@ var AnimatedScrollTo = function () {
 }();
 
 if (window) {
-  window.AnimatedScrollTo = AnimatedScrollTo.scrollToWithAnimation;
+  window.scrollToWithAnimation = AnimatedScrollTo.scrollToWithAnimation;
 }
 
 exports.default = AnimatedScrollTo;

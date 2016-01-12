@@ -69,7 +69,7 @@ class AnimatedScrollTo {
 }
 
 if (window) {
-  window.AnimatedScrollTo = AnimatedScrollTo.scrollToWithAnimation
+  window.scrollToWithAnimation = AnimatedScrollTo.scrollToWithAnimation
 }
 
 export default AnimatedScrollTo
