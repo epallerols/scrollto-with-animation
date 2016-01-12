@@ -1,12 +1,12 @@
 {
   "name": "scrollto-with-animation",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "Animated scrolling without any dependency on libraries",
-  "main": "src/scrollto-with-animation.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "open": "chromium-browser index.html",
-    "dev": "npm run watch && npm run open",
     "watch": "watchify -t babelify src/AnimatedScrollTo.js -o dist/bundle.js",
+    "start": "npm run watch && npm run open",
     "prepublish": "npm run compile",
     "compile": "browserify src/AnimatedScrollTo.js -o dist/bundle.js -t [ babelify ]"
   },
