@@ -6,9 +6,8 @@
   "scripts": {
     "open": "chromium-browser index.html",
     "dev": "npm run watch && npm run open",
-    "watch": "watchify -t babelify src/AnimatedScrollTo.js -o dist/js/bundle.js",
-    "prepublish": "npm run transpile",
-    "transpile": "babel src --out-dir dist/",
+    "watch": "watchify -t babelify src/AnimatedScrollTo.js -o dist/bundle.js",
+    "prepublish": "npm run compile",
     "compile": "browserify src/AnimatedScrollTo.js -o dist/bundle.js -t [ babelify ]"
   },
   "repository": {
