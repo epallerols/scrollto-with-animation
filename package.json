@@ -4,7 +4,12 @@
   "description": "Animated scrolling without any dependency on libraries",
   "main": "src/scrollto-with-animation.js",
   "scripts": {
-    "prepublish": "browserify src/scrollto-with-animation.js | uglifyjs -cm > dist/bundle.js"
+    "open": "chromium-browser index.html",
+    "dev": "npm run watch && npm run open",
+    "watch": "watchify -t babelify src/AnimatedScrollTo.js -o dist/js/bundle.js",
+    "prepublish": "npm run transpile",
+    "transpile": "babel src --out-dir dist/",
+    "compile": "browserify src/AnimatedScrollTo.js -o dist/bundle.js -t [ babelify ]"
   },
   "repository": {
     "type": "git",
@@ -27,7 +32,10 @@
     "animation-frame": "^0.2.5"
   },
   "devDependencies": {
-    "browserify": "^12.0.1",
-    "uglify-js": "^2.6.1"
+    "babel": "^6.3.26",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babelify": "^7.2.0",
+    "watchify": "^3.7.0"
   }
 }

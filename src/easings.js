@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   linearTween: function (t, b, c, d) {
     return c * t / d + b
   },
