@@ -1,9 +1,11 @@
 import easings from './easings'
-import animationFrame from 'animation-frame'
+import AnimationFrame from 'animation-frame'
 
+const animationFrame = new AnimationFrame()
 const DEFAULT_ANIMATION = 'easeInQuad'
 
 class AnimatedScrollTo {
+
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
@@ -20,12 +22,12 @@ class AnimatedScrollTo {
   }
 
   static scrollToWithAnimation (element, to, duration, transition, callback) {
-    var start = element.scrollTop
-    var change = to - start
-    var animationStart = +new Date()
-    var animating = true
-    var lastpos = null
-    var eq = null
+    let start = element.scrollTop
+    let change = to - start
+    let animationStart = +new Date()
+    let animating = true
+    let lastpos = null
+    let eq = null
 
     if (typeof transition === 'string' || transition === null) {
       eq = AnimatedScrollTo.findAnimation(transition)
@@ -35,13 +37,13 @@ class AnimatedScrollTo {
       throw new TypeError("scrollToWithAnimation: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation")
     }
 
-    var animateScroll = function () {
+    const animateScroll = function () {
       if (!animating) {
         return
       }
-      animationFrame(animateScroll)
-      var now = +new Date()
-      var val = Math.floor(eq(now - animationStart, start, change, duration))
+      animationFrame.request(animateScroll)
+      let now = +new Date()
+      let val = Math.floor(eq(now - animationStart, start, change, duration))
       if (lastpos) {
         if (lastpos === element.scrollTop) {
           lastpos = val
@@ -61,8 +63,9 @@ class AnimatedScrollTo {
         }
       }
     }
-    animationFrame(animateScroll)
+    animationFrame.request(animateScroll)
   }
+
 }
 
 if (window) {

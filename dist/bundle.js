@@ -248,6 +248,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var animationFrame = new _animationFrame2.default();
 var DEFAULT_ANIMATION = 'easeInQuad';
 
 var AnimatedScrollTo = function () {
@@ -296,7 +297,7 @@ var AnimatedScrollTo = function () {
         if (!animating) {
           return;
         }
-        (0, _animationFrame2.default)(animateScroll);
+        animationFrame.request(animateScroll);
         var now = +new Date();
         var val = Math.floor(eq(now - animationStart, start, change, duration));
         if (lastpos) {
@@ -318,7 +319,7 @@ var AnimatedScrollTo = function () {
           }
         }
       };
-      (0, _animationFrame2.default)(animateScroll);
+      animationFrame.request(animateScroll);
     }
   }]);
 
