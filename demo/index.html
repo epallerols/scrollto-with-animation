@@ -3,29 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>scrollToWithAnimation</title>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    .lola {
-      width: 20%;
-      height: 80px;
-      background-color: grey;
-      margin: 20px auto;
-    }
-
-    .lola55 {
-      background-color: blue;
-    }
-  </style>
-  <script src="dist/bundle.js" charset="utf-8"></script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style/reset.css">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="../dist/bundle.js" charset="utf-8"></script>
 </head>
 <body>
-  <header>
-    <h1>scrollto-with-animation</h1>
+  <header class="big-header">
+    <h1>SCROLLER</h1>
+    <h2>Animated Scroll with <a class="header-link" href="#">requestAnimationFrame</a></h2>
   </header>
   <div class="lola"></div>
   <div class="lola"></div>
@@ -1029,16 +1016,16 @@
   <div class="lola"></div>
 </body>
   <script type="text/javascript">
-    window.onload = function () {
-      scrollToWithAnimation(
-          document.body,
-          document.getElementsByClassName('lola55')[0].getBoundingClientRect().top,
-          3000,
-          'easeInOutCirc',
-          function() {
-            console.log('Done!')
-          }
-      );
-    }
+    // window.onload = function () {
+    //   scrollToWithAnimation(
+    //       document.body,
+    //       document.getElementsByClassName('lola55')[0].getBoundingClientRect().top,
+    //       3000,
+    //       'easeInOutCirc',
+    //       function() {
+    //         console.log('Done!')
+    //       }
+    //   );
+    // }
   </script>
 </html>

@@ -1,0 +1,47 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Montserrat', Arial;
+  font-size: 65px;
+  margin: 0;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  letter-spacing: 1px;
+  padding-bottom: 25px;
+}
+
+a.header-link {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  border-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+a.header-link:hover {
+  border-color: blue;
+}
+
+.big-header {
+  background: gainsboro;
+  text-align: center;
+}
+
+.lola {
+  width: 20%;
+  height: 80px;
+  background-color: grey;
+  margin: 20px auto;
+}
+
+.lola55 {
+  background-color: blue;
+}
