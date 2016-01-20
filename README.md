@@ -1,11 +1,11 @@
 # scrollToWithAnimation
 #### Modern animated scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser
 
-- Only one dependency (for the [polyfill](https://www.npmjs.com/package/animation-frame))
-- Cross-browser
+- Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
+- **Cross-browser**
 - **60 FPS** Animation
 - If user scrolls while animation is running, scroll animation would be immediately canceled
-- Available adding script or browserify
+- Available adding **script or browserify**
 
 ## Install
 
