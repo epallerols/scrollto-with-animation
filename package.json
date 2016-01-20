@@ -22,7 +22,7 @@
     "clean": "rm -rf dist/*",
     "open": "chromium-browser demo/index.html",
 
-    "start": "npm run watchify && npm run open",
+    "start": "npm run minify:watch && npm run open",
 
     "compile:watch": "babel ./src --watch --out-dir ./dist",
     "compile:build": "npm run clean; babel ./src --out-dir ./dist;",
@@ -30,7 +30,7 @@
     "minify:watch": "watchify -t babelify src/scrollto-with-animation.min.js -o dist/bundle.js",
     "minify:browserify": "browserify src/index.js -o dist/scrollto-with-animation.min.js -t [ babelify ]",
 
-    "prepublish": "npm run build"
+    "prepublish": "npm run compile:build"
   },
   "bugs": {
     "url": "https://github.com/davesnx/scrollto-with-animation/issues"
