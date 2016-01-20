@@ -80,7 +80,3 @@ This will scroll to top of the page and the animation will run for 10 seconds (1
 ## License
 
 MIT
-
-## Thanks
-
-##### Thanks to [madebysource/animated-scrollto](https://github.com/madebysource/animated-scrollto), for the base of the animated, I just added the possibility of define the equation or chose a existing one.
