@@ -4,24 +4,24 @@ import AnimationFrame from 'animation-frame'
 const animationFrame = new AnimationFrame()
 const DEFAULT_ANIMATION = 'easeInQuad'
 
-class scrollerto {
+class scrollToWithAnimation {
 
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
-      throw new Error('scrollerto: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
+      throw new Error('scrollToWithAnimation: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
     }
     return animation
   }
 
   static defineAnimation (transition) {
     if (transition.length !== 4) {
-      throw new TypeError('scrollerto: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError('scrollToWithAnimation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
     }
     return transition
   }
 
-  static scrollToWithAnimation (element, to, duration, transition, callback) {
+  static do (element, to, duration, transition, callback) {
     let start = element.scrollTop
     let change = to - start
     let animationStart = +new Date()
@@ -30,11 +30,11 @@ class scrollerto {
     let eq = null
 
     if (typeof transition === 'string' || transition === null) {
-      eq = scrollerto.findAnimation(transition)
+      eq = scrollToWithAnimation.findAnimation(transition)
     } else if (typeof transition === 'function') {
-      eq = scrollerto.defineAnimation(transition)
+      eq = scrollToWithAnimation.defineAnimation(transition)
     } else {
-      throw new TypeError('scrollerto: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError('scrollToWithAnimation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
     }
 
     const animateScroll = function () {
@@ -69,7 +69,7 @@ class scrollerto {
 }
 
 if (window) {
-  window.scrollerto = scrollerto.scrollToWithAnimation
+  window.scrollToWithAnimation = scrollToWithAnimation.do
 }
 
-export default scrollerto
+export default scrollToWithAnimation

@@ -1,5 +1,5 @@
 {
-  "name": "scrollerto",
+  "name": "scrollto-with-animation",
   "version": "2.1.0",
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
@@ -7,7 +7,7 @@
   "main": "dist/bundle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davesnx/scrollerto"
+    "url": "https://github.com/davesnx/scrollto-with-animation"
   },
   "keywords": [
     "animation",
@@ -20,13 +20,13 @@
   ],
   "scripts": {
     "open": "chromium-browser index.html",
-    "watch": "watchify -t babelify src/scrollerto.js -o dist/bundle.js",
+    "watch": "watchify -t babelify src/scrollToWithAnimation.js -o dist/bundle.js",
     "start": "npm run watch && npm run open",
     "prepublish": "npm run compile",
-    "compile": "browserify src/scrollerto.js -o dist/bundle.js -t [ babelify ]"
+    "compile": "browserify src/scrollToWithAnimation.js -o dist/bundle.js -t [ babelify ]"
   },
   "bugs": {
-    "url": "https://github.com/davesnx/scrollerto/issues"
+    "url": "https://github.com/davesnx/scrollto-with-animation/issues"
   },
   "dependencies": {
     "animation-frame": "^0.2.5"
