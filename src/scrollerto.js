@@ -4,19 +4,19 @@ import AnimationFrame from 'animation-frame'
 const animationFrame = new AnimationFrame()
 const DEFAULT_ANIMATION = 'easeInQuad'
 
-class Scroller {
+class scrollerto {
 
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
-      throw new Error('Scroller: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
+      throw new Error('scrollerto: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
     }
     return animation
   }
 
   static defineAnimation (transition) {
     if (transition.length !== 4) {
-      throw new TypeError("Scroller: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation")
+      throw new TypeError('scrollerto: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
     }
     return transition
   }
@@ -30,11 +30,11 @@ class Scroller {
     let eq = null
 
     if (typeof transition === 'string' || transition === null) {
-      eq = Scroller.findAnimation(transition)
+      eq = scrollerto.findAnimation(transition)
     } else if (typeof transition === 'function') {
-      eq = Scroller.defineAnimation(transition)
+      eq = scrollerto.defineAnimation(transition)
     } else {
-      throw new TypeError("Scroller: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation")
+      throw new TypeError('scrollerto: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
     }
 
     const animateScroll = function () {
@@ -69,7 +69,7 @@ class Scroller {
 }
 
 if (window) {
-  window.Scroller = Scroller.scrollToWithAnimation
+  window.scrollerto = scrollerto.scrollToWithAnimation
 }
 
-export default Scroller
+export default scrollerto

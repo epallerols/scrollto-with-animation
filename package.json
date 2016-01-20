@@ -1,5 +1,5 @@
 {
-  "name": "scroller",
+  "name": "scrollerto",
   "version": "2.1.0",
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
@@ -7,7 +7,7 @@
   "main": "dist/bundle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davesnx/scroller"
+    "url": "https://github.com/davesnx/scrollerto"
   },
   "keywords": [
     "animation",
@@ -20,13 +20,13 @@
   ],
   "scripts": {
     "open": "chromium-browser index.html",
-    "watch": "watchify -t babelify src/Scroller.js -o dist/bundle.js",
+    "watch": "watchify -t babelify src/scrollerto.js -o dist/bundle.js",
     "start": "npm run watch && npm run open",
     "prepublish": "npm run compile",
-    "compile": "browserify src/Scroller.js -o dist/bundle.js -t [ babelify ]"
+    "compile": "browserify src/scrollerto.js -o dist/bundle.js -t [ babelify ]"
   },
   "bugs": {
-    "url": "https://github.com/davesnx/scroller/issues"
+    "url": "https://github.com/davesnx/scrollerto/issues"
   },
   "dependencies": {
     "animation-frame": "^0.2.5"
