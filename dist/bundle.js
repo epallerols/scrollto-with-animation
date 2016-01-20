@@ -370,7 +370,7 @@ var scrollToWithAnimation = function () {
 
       var animation = _easings2.default[transition];
       if (animation === undefined) {
-        throw new Error('scrollToWithAnimation: Transition not found - https://github.com/davesnx/scrollToWithAnimation');
+        throw new Error('scrollTo-with-animation: Transition not found - https://github.com/davesnx/scrollToWithAnimation');
       }
       return animation;
     }
@@ -378,7 +378,7 @@ var scrollToWithAnimation = function () {
     key: 'defineAnimation',
     value: function defineAnimation(transition) {
       if (transition.length !== 4) {
-        throw new TypeError('scrollToWithAnimation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation');
+        throw new TypeError('scrollTo-with-animation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation');
       }
       return transition;
     }
@@ -397,7 +397,7 @@ var scrollToWithAnimation = function () {
       } else if (typeof transition === 'function') {
         eq = scrollToWithAnimation.defineAnimation(transition);
       } else {
-        throw new TypeError('scrollToWithAnimation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation');
+        throw new TypeError('scrollTo-with-animation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation');
       }
 
       var animateScroll = function animateScroll() {

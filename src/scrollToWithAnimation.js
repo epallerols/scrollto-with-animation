@@ -9,14 +9,14 @@ class scrollToWithAnimation {
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
-      throw new Error('scrollToWithAnimation: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
+      throw new Error('scrollTo-with-animation: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
     }
     return animation
   }
 
   static defineAnimation (transition) {
     if (transition.length !== 4) {
-      throw new TypeError('scrollToWithAnimation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError('scrollTo-with-animation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
     }
     return transition
   }
@@ -34,7 +34,7 @@ class scrollToWithAnimation {
     } else if (typeof transition === 'function') {
       eq = scrollToWithAnimation.defineAnimation(transition)
     } else {
-      throw new TypeError('scrollToWithAnimation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError('scrollTo-with-animation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
     }
 
     const animateScroll = function () {

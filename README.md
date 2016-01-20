@@ -1,4 +1,4 @@
-# scrollerto
+# scrollToWithAnimation
 Modern animated scroll with requestAnimationFrame
 For smoothly animating scroll defining the easing, running at 60FPS and cross-browser
 
@@ -11,7 +11,7 @@ For smoothly animating scroll defining the easing, running at 60FPS and cross-br
 ## Install
 
 ```bash
-npm install scrollerto --save
+npm install scrollToWithAnimation --save
 ```
 
 ## Usage
@@ -19,21 +19,21 @@ npm install scrollerto --save
 ### Available with browserify
 
 ```javascript
-var scrollerto = require('scrollerto')
+var scrollToWithAnimation = require('scrollTo-with-animation')
 // or ES2015
-import scrollerto from 'scrollerto'
+import scrollToWithAnimation from 'scrollTo-with-animation'
 ```
 
 ### or available as a script
 
 ```html
-<script src="scrollerto.js"></script>
+<script src="scrollToWithAnimation.js"></script>
 ```
 
 ### Example
 
 ```javascript
-scrollerto(
+scrollToWithAnimation(
     document.body, // element to scroll
     0, // target scrollY (0 means top of the page)
     10000, // duration in ms
@@ -77,7 +77,7 @@ This will scroll to top of the page and the animation will run for 10 seconds (1
 - `easeOutCirc`
 - `easeInOutCirc`
 
-> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollerto/blob/master/src/easings.js)
+> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollToWithAnimation/blob/master/src/easings.js)
 
 ## License
 
