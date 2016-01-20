@@ -1,11 +1,11 @@
 # scrollto-with-animation
-This is a simple function for animating scroll that can define a easing equation function,
-working with scrollTop of the element and works fine in all browsers.
+Animated Scroll with requestAnimationFrame
+For smoothly animating scroll defining the easing, running at 60FPS and cross-browser
 
 - Only one dependency (for the [polyfill](https://www.npmjs.com/package/animation-frame))
-- Cross-browser.
-- 60 FPS Animation.
-- If user scrolls while animation is running, scroll animation would be immediately canceled.
+- Cross-browser
+- **60 FPS** Animation
+- If user scrolls while animation is running, scroll animation would be immediately canceled
 - Available adding script or browserify
 
 ## Install
@@ -75,7 +75,7 @@ This will scroll to top of the page and the animation will run for 10 seconds (1
 - `easeOutCirc`
 - `easeInOutCirc`
 
-### Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollto-with-animation/blob/master/src/easings.js)
+> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollto-with-animation/blob/master/src/easings.js)
 
 ## License
 

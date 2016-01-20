@@ -1,32 +1,33 @@
 {
   "name": "scroller",
   "version": "2.1.0",
+  "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
+  "license": "MIT",
   "main": "dist/bundle.js",
-  "scripts": {
-    "open": "chromium-browser index.html",
-    "watch": "watchify -t babelify src/AnimatedScrollTo.js -o dist/bundle.js",
-    "start": "npm run watch && npm run open",
-    "prepublish": "npm run compile",
-    "compile": "browserify src/AnimatedScrollTo.js -o dist/bundle.js -t [ babelify ]"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davesnx/scrollto-with-animation"
-  },
-  "bugs": {
-    "url": "https://github.com/davesnx/scrollto-with-animation/issues"
+    "url": "https://github.com/davesnx/scroller"
   },
   "keywords": [
     "animation",
-    "requestAnimationFrame",
+    "scrollTo",
+    "60fps",
     "cross-browser",
-    "setTimeout",
+    "requestAnimationFrame",
     "easeInQuad",
     "browserify"
   ],
-  "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
-  "license": "MIT",
+  "scripts": {
+    "open": "chromium-browser index.html",
+    "watch": "watchify -t babelify src/Scroller.js -o dist/bundle.js",
+    "start": "npm run watch && npm run open",
+    "prepublish": "npm run compile",
+    "compile": "browserify src/Scroller.js -o dist/bundle.js -t [ babelify ]"
+  },
+  "bugs": {
+    "url": "https://github.com/davesnx/scroller/issues"
+  },
   "dependencies": {
     "animation-frame": "^0.2.5"
   },

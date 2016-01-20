@@ -251,19 +251,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var animationFrame = new _animationFrame2.default();
 var DEFAULT_ANIMATION = 'easeInQuad';
 
-var AnimatedScrollTo = function () {
-  function AnimatedScrollTo() {
-    _classCallCheck(this, AnimatedScrollTo);
+var Scroller = function () {
+  function Scroller() {
+    _classCallCheck(this, Scroller);
   }
 
-  _createClass(AnimatedScrollTo, null, [{
+  _createClass(Scroller, null, [{
     key: 'findAnimation',
     value: function findAnimation() {
       var transition = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_ANIMATION : arguments[0];
 
       var animation = _easings2.default[transition];
       if (animation === undefined) {
-        throw new Error('scrollToWithAnimation: Transition not found - https://github.com/davesnx/scrollToWithAnimation');
+        throw new Error('Scroller: Transition not found - https://github.com/davesnx/scrollToWithAnimation');
       }
       return animation;
     }
@@ -271,7 +271,7 @@ var AnimatedScrollTo = function () {
     key: 'defineAnimation',
     value: function defineAnimation(transition) {
       if (transition.length !== 4) {
-        throw new TypeError("scrollToWithAnimation: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation");
+        throw new TypeError("Scroller: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation");
       }
       return transition;
     }
@@ -286,11 +286,11 @@ var AnimatedScrollTo = function () {
       var eq = null;
 
       if (typeof transition === 'string' || transition === null) {
-        eq = AnimatedScrollTo.findAnimation(transition);
+        eq = Scroller.findAnimation(transition);
       } else if (typeof transition === 'function') {
-        eq = AnimatedScrollTo.defineAnimation(transition);
+        eq = Scroller.defineAnimation(transition);
       } else {
-        throw new TypeError("scrollToWithAnimation: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation");
+        throw new TypeError("Scroller: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation");
       }
 
       var animateScroll = function animateScroll() {
@@ -323,14 +323,14 @@ var AnimatedScrollTo = function () {
     }
   }]);
 
-  return AnimatedScrollTo;
+  return Scroller;
 }();
 
 if (window) {
-  window.scrollToWithAnimation = AnimatedScrollTo.scrollToWithAnimation;
+  window.Scroller = Scroller.scrollToWithAnimation;
 }
 
-exports.default = AnimatedScrollTo;
+exports.default = Scroller;
 
 },{"./easings":8,"animation-frame":1}],8:[function(require,module,exports){
 "use strict";

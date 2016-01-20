@@ -43,7 +43,7 @@ window.onload = function () {
   var position = elemHighlighted.getBoundingClientRect().top - header.getBoundingClientRect().height
   var newpos = position
 
-  window.scrollToWithAnimation(
+  window.Scroller(
     document.body,
     position,
     3000,
@@ -57,7 +57,7 @@ window.onload = function () {
     } else {
       newpos = position
     }
-    window.scrollToWithAnimation(
+    window.Scroller(
       document.body,
       newpos,
       3000,
