@@ -6,7 +6,7 @@
 - If user scrolls while animation is running, scroll animation would be immediately canceled
 - Available adding **script or browserify**
 
-#### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.htmldavesnx.github.io/scrollto-with-animation/docs/demo/index.html)
+#### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
 
 ## Install
 
