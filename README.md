@@ -1,10 +1,12 @@
-![](docs/Header.png)
+![](docs/Logo.png)
 
 - Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
 - **Cross-browser**
 - **60 FPS** Animation
 - If user scrolls while animation is running, scroll animation would be immediately canceled
 - Available adding **script or browserify**
+
+#### [Live demo](davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
 
 ## Install
 
@@ -36,7 +38,7 @@ scrollToWithAnimation(
     0, // target scrollY (0 means top of the page)
     10000, // duration in ms
     'easeInOutCirc', /*
-        Can be a name of the list of 'Posible easing equations' or a callback
+        Can be a name of the list of 'Possible easing equations' or a callback
         that defines the ease. # http://gizma.com/easing/
     */
     function() { // callback function that runs after the animation (optional)
@@ -75,7 +77,7 @@ This will scroll to top of the page and the animation will run for 10 seconds (1
 - `easeOutCirc`
 - `easeInOutCirc`
 
-> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollToWithAnimation/blob/master/src/easings.js)
+> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollToWithAnimation/blob/master/src/easings.js) open a Pull request!
 
 ## License
 
