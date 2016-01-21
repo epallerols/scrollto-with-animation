@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-npm install scrollToWithAnimation --save
+npm install scrollTo-with-animation --save
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import scrollToWithAnimation from 'scrollTo-with-animation'
 ### or available as a script
 
 ```html
-<script src="scrollToWithAnimation.js"></script>
+<script src="scrollToWithAnimation.min.js"></script>
 ```
 
 ### Example
