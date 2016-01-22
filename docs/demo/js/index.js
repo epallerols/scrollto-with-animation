@@ -66,3 +66,13 @@ window.onload = function () {
     )
   }, 4500)
 }
+
+/* eslint-disable */
+!function(s,c,r,o,l,L){s.GoogleAnalyticsObject=r;s[r]||(s[r]=function(){
+(s[r].q=s[r].q||[]).push(arguments)});s[r].l=+new Date;l=c.createElement(o);
+L=c.getElementsByTagName(o)[0];l.src='//www.google-analytics.com/analytics.js';
+L.parentNode.insertBefore(l,L)}(window,document,'ga','script');
+
+ga('create', 'UA-XXXXX-X', 'auto');
+ga('send', 'pageview');
+/* eslint-enable */
