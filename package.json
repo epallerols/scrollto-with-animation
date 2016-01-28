@@ -1,6 +1,6 @@
 {
   "name": "scrollto-with-animation",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
   "license": "MIT",
@@ -26,6 +26,7 @@
     "compile:build": "npm run clean; babel ./src --out-dir ./dist",
     "minify:watch": "watchify -t babelify src/scrollto-with-animation.min.js -o dist/bundle.js",
     "minify:browserify": "browserify src/index.js -o dist/scrollto-with-animation.min.js -t [ babelify ]",
+    "test": "mocha --compilers js:babel/register",
     "prepublish": "npm run compile:build"
   },
   "pre-push": [
