@@ -42,8 +42,8 @@ class scrollToWithAnimation {
         return
       }
       animationFrame.request(animateScroll)
-      let now = +new Date()
-      let val = Math.floor(eq(now - animationStart, start, change, duration))
+      const now = +new Date()
+      const val = Math.floor(eq(now - animationStart, start, change, duration))
       if (lastpos) {
         if (lastpos === element.scrollTop) {
           lastpos = val
