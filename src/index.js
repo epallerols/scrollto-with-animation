@@ -72,4 +72,4 @@ if (window) {
   window.scrollToWithAnimation = scrollToWithAnimation.do
 }
 
-export default scrollToWithAnimation
+export default scrollToWithAnimation.do
