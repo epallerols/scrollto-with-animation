@@ -100,4 +100,4 @@ if (window) {
   window.scrollToWithAnimation = scrollToWithAnimation.do;
 }
 
-exports.default = scrollToWithAnimation;
+exports.default = scrollToWithAnimation.do;
