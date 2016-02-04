@@ -11,7 +11,7 @@
 ## Install
 
 ```bash
-npm install scrollTo-with-animation --save
+npm install scrollto-with-animation --save
 ```
 
 ## Usage
@@ -19,9 +19,9 @@ npm install scrollTo-with-animation --save
 ### Available with browserify
 
 ```javascript
-var scrollToWithAnimation = require('scrollTo-with-animation')
+var scrollToWithAnimation = require('scrollto-with-animation')
 // or ES2015
-import scrollToWithAnimation from 'scrollTo-with-animation'
+import scrollToWithAnimation from 'scrollto-with-animation'
 ```
 
 ### or available as a script
