@@ -26,7 +26,8 @@
     "compile:build": "npm run clean; babel ./src --out-dir ./dist",
     "minify:watch": "watchify -t babelify src/scrollto-with-animation.min.js -o dist/bundle.js",
     "minify:browserify": "browserify src/index.js -o dist/scrollto-with-animation.min.js -t [ babelify ]",
-    "test": "mocha --compilers js:babel/register",
+    "test": "mocha test/ --compilers js:babel-core/register",
+    "test:watch": "mocha test/ --watch --compilers js:babel-core/register",
     "prepublish": "npm run compile:build"
   },
   "pre-push": [
@@ -45,6 +46,17 @@
     "babelify": "^7.2.0",
     "mocha": "^2.3.4",
     "pre-push": "^0.1.1",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "global": [
+      "it",
+      "describe",
+      "beforeEach",
+      "afterEach"
+    ]
   }
 }
