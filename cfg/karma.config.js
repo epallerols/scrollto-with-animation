@@ -7,7 +7,6 @@ module.exports = function (config) {
     exclude: [],
     basePath: ROOT_PATH,
     files: [
-      '/node_modules/phantomjs-polyfill/bind-polyfill.js',
       'test/**/*.js'
     ],
     frameworks: ['jasmine'],
@@ -15,8 +14,10 @@ module.exports = function (config) {
       'test/**/*.js': ['webpack', 'sourcemap']
     },
     webpack: {
-      module: webpackcfg.module,
-      process: false
+      module: webpackcfg.module
+    },
+    webpackMiddleware: {
+      noInfo: true
     },
     plugins: [
       'karma-jasmine',

@@ -1,20 +1,59 @@
-import scrollto from './../src/index'
+import scrollto, {animationFrame} from './../src/index'
 
-describe('#findAnimation', function () {
-  beforeEach(function () {
-    this.TO = 0
-    this.DURATION = 100
-    this.TRANSITION_OK = 'easeInOutQuad'
-    this.TRANSITION_KO = 'flowInOutFly'
-  })
+const D = document
+const TO = 0
+const DURATION = 100
+const TRANSITION_OK = 'easeInOutQuad'
+const TRANSITION_KO = 'flowInOutFly'
+const TRANSITION_EQ_OK = (a, b, c, d) => a + b + c + d
+const TRANSITION_EQ_KO = () => {}
 
-  it(`to throw an exception when transition isn't correct`, function () {
-    const func = () => scrollto(document, this.TO, this.DURATION, this.TRANSITION_KO)
+// const simulateScroll = (DOMNode) => {
+//   var evt = window.document.createEvent('UIEvents')
+//   evt.initUIEvent('scroll', true, true, window, 1)
+//   DOMNode.dispatchEvent(evt)
+// }
+
+describe(`#findAnimation when you pass`, function () {
+  it(`an incorrect transition should throw an exception`, function () {
+    const func = () => scrollto(D, TO, DURATION, TRANSITION_KO)
     expect(func).toThrow()
   })
 
-  it(`to not throw an exception when transition is correct`, function () {
-    const func = () => scrollto(document, this.TO, this.DURATION, this.TRANSITION_OK)
+  it(`a correct transition shouldn't throw an exception`, function () {
+    const func = () => scrollto(D, TO, DURATION, TRANSITION_OK)
     expect(func).not.toThrow()
   })
+})
+
+describe(`#defineAnimation when you pass an easing function`, function () {
+  it(`that isn't correct should throw an exception`, function () {
+    const func = () => scrollto(D, TO, DURATION, TRANSITION_EQ_KO)
+    expect(func).toThrow()
+  })
+
+  it(`that is correct shouldn't throw an exception`, function () {
+    const func = () => scrollto(D, TO, DURATION, TRANSITION_EQ_OK)
+    expect(func).not.toThrow()
+  })
+})
+
+describe(`#do the scrollto with animation`, function () {
+  it(`should call animationFrame.request`, function () {
+    animationFrame.request = jasmine.createSpy('animationFrameSpy')
+    scrollto()
+    expect(animationFrame.request).toHaveBeenCalled()
+  })
+
+  fit(`should call the callback at the end`, function () {
+    spyOn(foo, 'x')
+    scrollto(D, TO, DURATION, TRANSITION_OK, foo.x)
+    expect(foo.x).toHaveBeenCalled()
+  })
+
+  // fit(`should call animationFrame.request`, function () {
+  //
+  //   scrollto(D, TO, DURATION, TRANSITION_OK, cbSpy)
+  //
+  // })
 })

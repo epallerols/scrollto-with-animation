@@ -9,19 +9,19 @@ class scrollToWithAnimation {
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
-      throw new Error('scrollTo-with-animation: Transition not found - https://github.com/davesnx/scrollToWithAnimation')
+      throw new Error(`scrollTo-with-animation: Transition not found - https://github.com/davesnx/scrollToWithAnimation`)
     }
     return animation
   }
 
   static defineAnimation (transition) {
     if (transition.length !== 4) {
-      throw new TypeError('scrollTo-with-animation: callback transition don\'t look like a valid equation - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError(`scrollTo-with-animation: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation`)
     }
     return transition
   }
 
-  static do (element, to, duration, transition, callback) {
+  static do (element = document, to = 0, duration = 100, transition = DEFAULT_ANIMATION, callback) {
     let start = element.scrollTop
     let change = to - start
     let animationStart = +new Date()
@@ -34,7 +34,7 @@ class scrollToWithAnimation {
     } else if (typeof transition === 'function') {
       eq = scrollToWithAnimation.defineAnimation(transition)
     } else {
-      throw new TypeError('scrollTo-with-animation: Transition isn\'t string or Function - https://github.com/davesnx/scrollToWithAnimation')
+      throw new TypeError(`scrollTo-with-animation: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation`)
     }
 
     const animateScroll = function () {
@@ -44,8 +44,10 @@ class scrollToWithAnimation {
       animationFrame.request(animateScroll)
       const now = +new Date()
       const val = Math.floor(eq(now - animationStart, start, change, duration))
+      console.log('lastpos', lastpos)
       if (lastpos) {
         if (lastpos === element.scrollTop) {
+          console.log('lastpos === element.scrollTop', lastpos === element.scrollTop)
           lastpos = val
           element.scrollTop = val
         } else {
@@ -59,6 +61,7 @@ class scrollToWithAnimation {
         element.scrollTop = to
         animating = false
         if (callback) {
+          console.log('callback calleddddd!')
           callback()
         }
       }
@@ -73,3 +76,8 @@ if (window) {
 }
 
 export default scrollToWithAnimation.do
+
+// Export this for unit testing purposes
+export {
+  animationFrame
+}

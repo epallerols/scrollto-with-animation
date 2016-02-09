@@ -61,18 +61,19 @@
     "karma-story-reporter": "^0.3.1",
     "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.18",
-    "phantomjs-polyfill": "0.0.1",
     "pre-push": "^0.1.1",
     "webpack": "^1.12.13"
   },
   "standard": {
     "parser": "babel-eslint",
     "global": [
+      "jasmine",
       "it",
       "describe",
       "beforeEach",
       "afterEach",
-      "expect"
+      "expect",
+      "spyOn"
     ]
   }
 }
