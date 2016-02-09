@@ -45,15 +45,9 @@ describe(`#do the scrollto with animation`, function () {
     expect(animationFrame.request).toHaveBeenCalled()
   })
 
-  fit(`should call the callback at the end`, function () {
-    spyOn(foo, 'x')
-    scrollto(D, TO, DURATION, TRANSITION_OK, foo.x)
-    expect(foo.x).toHaveBeenCalled()
-  })
-
-  // fit(`should call animationFrame.request`, function () {
-  //
-  //   scrollto(D, TO, DURATION, TRANSITION_OK, cbSpy)
-  //
-  // })
+//   it(`should call the callback at the end`, function () {
+//     const cbSpy = jasmine.createSpy('cbSpy')
+//     scrollto(D, TO, DURATION, TRANSITION_OK, cbSpy)
+//     expect(cbSpy).toHaveBeenCalled()
+//   })
 })
