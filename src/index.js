@@ -44,10 +44,8 @@ class scrollToWithAnimation {
       animationFrame.request(animateScroll)
       const now = +new Date()
       const val = Math.floor(eq(now - animationStart, start, change, duration))
-      console.log('lastpos', lastpos)
       if (lastpos) {
         if (lastpos === element.scrollTop) {
-          console.log('lastpos === element.scrollTop', lastpos === element.scrollTop)
           lastpos = val
           element.scrollTop = val
         } else {
@@ -61,7 +59,6 @@ class scrollToWithAnimation {
         element.scrollTop = to
         animating = false
         if (callback) {
-          console.log('callback calleddddd!')
           callback()
         }
       }
