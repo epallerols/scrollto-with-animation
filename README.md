@@ -1,7 +1,7 @@
 ![](docs/Logo.png)
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+![npm badge](https://nodei.co/npm/scrollto-with-animation.png?downloads=true)
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 - Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
