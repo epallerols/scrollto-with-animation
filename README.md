@@ -1,5 +1,9 @@
 ![](docs/Logo.png)
 
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 - Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
 - **Cross-browser**
 - **60 FPS** Animation
