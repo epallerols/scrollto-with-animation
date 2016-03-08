@@ -1,8 +1,6 @@
 ![](docs/Logo.png)
 
-![npm badge](https://nodei.co/npm/scrollto-with-animation.png?downloads=true)
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
 
 - Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
 - **Cross-browser**
@@ -45,7 +43,7 @@ scrollToWithAnimation(
         Can be a name of the list of 'Possible easing equations' or a callback
         that defines the ease. # http://gizma.com/easing/
     */
-    function() { // callback function that runs after the animation (optional)
+    function () { // callback function that runs after the animation (optional)
       console.log('done!')
     }
 );
