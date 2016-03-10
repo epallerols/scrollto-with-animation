@@ -4,19 +4,25 @@ import AnimationFrame from 'animation-frame'
 const animationFrame = new AnimationFrame()
 const DEFAULT_ANIMATION = 'easeInQuad'
 
+const LIB_NAME = 'scrollto-with-animation'
+const URL_GITHUB = 'https://github.com/davesnx/scrollToWithAnimation'
+const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${URL_GITHUB}`
+const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${URL_GITHUB}`
+const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${URL_GITHUB}`
+
 class scrollToWithAnimation {
 
   static findAnimation (transition = DEFAULT_ANIMATION) {
     var animation = easings[transition]
     if (animation === undefined) {
-      throw new Error(`scrollTo-with-animation: Transition not found - https://github.com/davesnx/scrollToWithAnimation`)
+      throw new Error(TRANSITION_NOT_FOUND)
     }
     return animation
   }
 
   static defineAnimation (transition) {
     if (transition.length !== 4) {
-      throw new TypeError(`scrollTo-with-animation: callback transition don't look like a valid equation - https://github.com/davesnx/scrollToWithAnimation`)
+      throw new TypeError(ANIMATION_NOT_VALID)
     }
     return transition
   }
@@ -34,7 +40,7 @@ class scrollToWithAnimation {
     } else if (typeof transition === 'function') {
       eq = scrollToWithAnimation.defineAnimation(transition)
     } else {
-      throw new TypeError(`scrollTo-with-animation: Transition isn't string or Function - https://github.com/davesnx/scrollToWithAnimation`)
+      throw new TypeError(TRANSITION_NOT_VALID)
     }
 
     const animateScroll = function () {
