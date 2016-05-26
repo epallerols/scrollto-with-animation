@@ -1,10 +1,11 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.animationFrame = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _easings = require('./easings');
 
@@ -20,6 +21,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var animationFrame = new _animationFrame2.default();
 var DEFAULT_ANIMATION = 'easeInQuad';
+
+var _document = typeof document !== 'undefined' ? document : {};
+var _window = typeof window !== 'undefined' ? window : {};
 
 var scrollToWithAnimation = function () {
   function scrollToWithAnimation() {
@@ -47,8 +51,15 @@ var scrollToWithAnimation = function () {
     }
   }, {
     key: 'do',
-    value: function _do(element, to, duration, transition, callback) {
-      var start = element.scrollTop;
+    value: function _do() {
+      var element = arguments.length <= 0 || arguments[0] === undefined ? _document : arguments[0];
+      var direction = arguments.length <= 1 || arguments[1] === undefined ? 'scrollTop' : arguments[1];
+      var to = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var duration = arguments.length <= 3 || arguments[3] === undefined ? 100 : arguments[3];
+      var transition = arguments.length <= 4 || arguments[4] === undefined ? DEFAULT_ANIMATION : arguments[4];
+      var callback = arguments[5];
+
+      var start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft;
       var change = to - start;
       var animationStart = +new Date();
       var animating = true;
@@ -71,18 +82,18 @@ var scrollToWithAnimation = function () {
         var now = +new Date();
         var val = Math.floor(eq(now - animationStart, start, change, duration));
         if (lastpos) {
-          if (lastpos === element.scrollTop) {
+          if (lastpos === element[direction]) {
             lastpos = val;
-            element.scrollTop = val;
+            element[direction] = val;
           } else {
             animating = false;
           }
         } else {
           lastpos = val;
-          element.scrollTop = val;
+          element[direction] = val;
         }
         if (now > animationStart + duration) {
-          element.scrollTop = to;
+          element[direction] = to;
           animating = false;
           if (callback) {
             callback();
@@ -96,8 +107,10 @@ var scrollToWithAnimation = function () {
   return scrollToWithAnimation;
 }();
 
-if (window) {
-  window.scrollToWithAnimation = scrollToWithAnimation.do;
-}
+_window.scrollToWithAnimation = scrollToWithAnimation.do;
 
 exports.default = scrollToWithAnimation.do;
+
+// Export this for unit testing purposes
+
+exports.animationFrame = animationFrame;
