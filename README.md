@@ -2,11 +2,10 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
 
-- Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))*
-- **Cross-browser**
+- Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))* for **rAF cross-browser**
 - **60 FPS** Animation
 - If user scrolls while animation is running, scroll animation would be immediately canceled
-- Available adding **script or browserify**
+- Available adding **script or module**
 
 #### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
 
@@ -18,7 +17,7 @@ npm install scrollto-with-animation --save
 
 ## Usage
 
-### Available with browserify
+### Available as a module
 
 ```javascript
 var scrollToWithAnimation = require('scrollto-with-animation')
@@ -26,7 +25,7 @@ var scrollToWithAnimation = require('scrollto-with-animation')
 import scrollToWithAnimation from 'scrollto-with-animation'
 ```
 
-### or available as a script
+### or as a script
 
 ```html
 <script src="scrollToWithAnimation.min.js"></script>
