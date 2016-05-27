@@ -12,6 +12,9 @@ const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function -
 const _document = typeof document !== 'undefined' ? document : {}
 const _window = typeof window !== 'undefined' ? window : {}
 
+var _document = typeof document !== 'undefined' ? document : {}
+var _window = typeof window !== 'undefined' ? window : {}
+
 class scrollToWithAnimation {
 
   static findAnimation (transition = DEFAULT_ANIMATION) {
