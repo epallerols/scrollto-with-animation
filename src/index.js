@@ -27,8 +27,8 @@ class scrollToWithAnimation {
     return transition
   }
 
-  static do (element = document, to = 0, duration = 100, transition = DEFAULT_ANIMATION, callback) {
-    let start = element.scrollTop
+  static do (element = document, direction = 'scrollTop', to = 0, duration = 100, transition = DEFAULT_ANIMATION, callback) {
+    let start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft
     let change = to - start
     let animationStart = +new Date()
     let animating = true
@@ -51,18 +51,18 @@ class scrollToWithAnimation {
       const now = +new Date()
       const val = Math.floor(eq(now - animationStart, start, change, duration))
       if (lastpos) {
-        if (lastpos === element.scrollTop) {
+        if (lastpos === element[direction]) {
           lastpos = val
-          element.scrollTop = val
+          element[direction] = val
         } else {
           animating = false
         }
       } else {
         lastpos = val
-        element.scrollTop = val
+        element[direction] = val
       }
       if (now > animationStart + duration) {
-        element.scrollTop = to
+        element[direction] = to
         animating = false
         if (callback) {
           callback()
