@@ -4,6 +4,9 @@ import AnimationFrame from 'animation-frame'
 const animationFrame = new AnimationFrame()
 const DEFAULT_ANIMATION = 'easeInQuad'
 
+var _document = typeof document !== 'undefined' ? document : {}
+var _window = typeof window !== 'undefined' ? window : {}
+
 class scrollToWithAnimation {
 
   static findAnimation (transition = DEFAULT_ANIMATION) {
@@ -21,7 +24,7 @@ class scrollToWithAnimation {
     return transition
   }
 
-  static do (element = document, direction = 'scrollTop', to = 0, duration = 100, transition = DEFAULT_ANIMATION, callback) {
+  static do (element = _document, direction = 'scrollTop', to = 0, duration = 100, transition = DEFAULT_ANIMATION, callback) {
     let start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft
     let change = to - start
     let animationStart = +new Date()
@@ -68,9 +71,7 @@ class scrollToWithAnimation {
 
 }
 
-if (window) {
-  window.scrollToWithAnimation = scrollToWithAnimation.do
-}
+_window.scrollToWithAnimation = scrollToWithAnimation.do
 
 export default scrollToWithAnimation.do
 

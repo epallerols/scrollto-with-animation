@@ -42,3 +42,7 @@ build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 *.vi
 *~
 *.sass-cache
+
+# ignore automatically generated folders
+lib
+dist
