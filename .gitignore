@@ -25,10 +25,7 @@ lib-cov
 
 pids
 logs
-results
-
 node_modules
-npm-debug.log
 
 build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 
@@ -41,4 +38,3 @@ build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 *.swp
 *.vi
 *~
-*.sass-cache
