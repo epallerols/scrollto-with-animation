@@ -42,9 +42,11 @@ window.onload = function () {
 
   var position = elemHighlighted.getBoundingClientRect().top - header.getBoundingClientRect().height
   var newpos = position
+  var direction = 'scrollTop'
 
   window.scrollToWithAnimation(
     document.body,
+    direction,
     position,
     3000,
     easeInOutCircWithFPS,
@@ -59,6 +61,7 @@ window.onload = function () {
     }
     window.scrollToWithAnimation(
       document.body,
+      direction,
       newpos,
       3000,
       easeInOutCircWithFPS,
