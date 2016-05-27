@@ -31,6 +31,9 @@
   "pre-push": [
     "minify:prod"
   ],
+  "pre-commit": [
+    "test"
+  ],
   "bugs": {
     "url": "https://github.com/davesnx/scrollto-with-animation/issues"
   },
