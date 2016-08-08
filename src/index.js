@@ -36,43 +36,57 @@ const scrollToWithAnimation = (
   callback
 ) => {
   let start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft
-  let change = to - start
-  let animationStart = +new Date()
-  let animating = true
-  let lastpos = null
-  let eq = null
+  let distance = to - start
+  let animationStartTime = +new Date()
+  let isAnimating = true
+  let lastScrolledPosition = null
+  let transitionFunction = null
 
   if (typeof transition === 'string' || transition === null) {
-    eq = findAnimation(transition)
+    transitionFunction = findAnimation(transition)
   } else if (typeof transition === 'function') {
-    eq = defineAnimation(transition)
+    transitionFunction = defineAnimation(transition)
   } else {
     throw new TypeError(TRANSITION_NOT_VALID)
   }
 
+  if (callback) {
+    const timeout = setTimeout(() => {
+      callbackWrapper()
+    }, duration + 1)
+
+    const callbackWrapper = () => {
+      clearTimeout(timeout)
+      callback()
+    }
+  }
+
   const animateScroll = () => {
-    if (!animating) {
+    if (!isAnimating) {
       return
     }
+
     animationFrame.request(animateScroll)
     const now = +new Date()
-    const val = Math.floor(eq(now - animationStart, start, change, duration))
-    if (lastpos) {
-      if (lastpos === element[direction]) {
-        lastpos = val
-        element[direction] = val
+    const newScrollPosition = Math.floor(eq(now - animationStartTime, start, distance, duration))
+
+    if (lastScrolledPosition) {
+      if (lastScrolledPosition === element[direction]) {
+        lastScrolledPosition = newScrollPosition
+        element[direction] = newScrollPosition
       } else {
-        animating = false
+        isAnimating = false
       }
     } else {
-      lastpos = val
-      element[direction] = val
+      lastScrolledPosition = newScrollPosition
+      element[direction] = newScrollPosition
     }
-    if (now > animationStart + duration) {
+
+    if (now > animationStartTime + duration) {
       element[direction] = to
-      animating = false
+      isAnimating = false
       if (callback) {
-        callback()
+        callbackWrapper()
       }
     }
   }
