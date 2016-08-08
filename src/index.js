@@ -68,7 +68,9 @@ const scrollToWithAnimation = (
 
     animationFrame.request(animateScroll)
     const now = +new Date()
-    const newScrollPosition = Math.floor(eq(now - animationStartTime, start, distance, duration))
+    const newScrollPosition = Math.floor(
+      transitionFunction(now - animationStartTime, start, distance, duration)
+    )
 
     if (lastScrolledPosition) {
       if (lastScrolledPosition === element[direction]) {
