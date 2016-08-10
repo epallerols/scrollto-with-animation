@@ -2,26 +2,30 @@ import easings from './easings'
 import AnimationFrame from 'animation-frame'
 const animationFrame = new AnimationFrame()
 
+const DEBUG = process.env.NODE_ENV || true
 const DEFAULT_ANIMATION = 'easeInQuad'
 const LIB_NAME = 'scrollto-with-animation'
-const URL_GITHUB = 'https://github.com/davesnx/scrollToWithAnimation'
-const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${URL_GITHUB}`
-const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${URL_GITHUB}`
-const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${URL_GITHUB}`
+const GITHUB_URL = 'https://github.com/davesnx/scrollToWithAnimation'
+const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${GITHUB_URL}`
+const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${GITHUB_URL}`
+const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${GITHUB_URL}`
+
+const ANIMATION_CANCEL = 'animation-cancel'
+const ANIMATION_END = 'animation-end'
 
 const _document = typeof document !== 'undefined' ? document : {}
 const _window = typeof window !== 'undefined' ? window : {}
 
 const findAnimation = (transition = DEFAULT_ANIMATION) => {
   var animation = easings[transition]
-  if (animation === undefined) {
+  if (animation === undefined && DEBUG) {
     throw new Error(TRANSITION_NOT_FOUND)
   }
   return animation
 }
 
 const defineAnimation = (transition) => {
-  if (transition.length !== 4) {
+  if (transition.length !== 4 && DEBUG) {
     throw new TypeError(ANIMATION_NOT_VALID)
   }
   return transition
@@ -50,23 +54,7 @@ const scrollToWithAnimation = (
     throw new TypeError(TRANSITION_NOT_VALID)
   }
 
-  if (callback) {
-    const timeout = setTimeout(() => {
-      callbackWrapper()
-    }, duration + 1)
-
-    const callbackWrapper = () => {
-      clearTimeout(timeout)
-      callback()
-    }
-  }
-
   const animateScroll = () => {
-    if (!isAnimating) {
-      return
-    }
-
-    animationFrame.request(animateScroll)
     const now = +new Date()
     const newScrollPosition = Math.floor(
       transitionFunction(now - animationStartTime, start, distance, duration)
@@ -78,6 +66,9 @@ const scrollToWithAnimation = (
         element[direction] = newScrollPosition
       } else {
         isAnimating = false
+        if (callback) {
+          callback(ANIMATION_CANCEL)
+        }
       }
     } else {
       lastScrolledPosition = newScrollPosition
@@ -88,8 +79,12 @@ const scrollToWithAnimation = (
       element[direction] = to
       isAnimating = false
       if (callback) {
-        callbackWrapper()
+        callback(ANIMATION_END)
       }
+    }
+
+    if (isAnimating) {
+      animationFrame.request(animateScroll)
     }
   }
   animationFrame.request(animateScroll)
