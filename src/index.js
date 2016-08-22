@@ -91,7 +91,9 @@ const scrollToWithAnimation = (
 }
 
 // Publish public method in window
-_window.scrollToWithAnimation = scrollToWithAnimation
+if (_window !== {}) {
+  window.scrollToWithAnimation = scrollToWithAnimation
+}
 
 export default scrollToWithAnimation
 export {animationFrame}
