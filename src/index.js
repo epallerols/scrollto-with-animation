@@ -60,19 +60,14 @@ const scrollToWithAnimation = (
       transitionFunction(now - animationStartTime, start, distance, duration)
     )
 
-    if (lastScrolledPosition) {
-      if (lastScrolledPosition === element[direction]) {
-        lastScrolledPosition = newScrollPosition
-        element[direction] = newScrollPosition
-      } else {
-        isAnimating = false
-        if (callback) {
-          callback(ANIMATION_CANCEL)
-        }
-      }
-    } else {
-      lastScrolledPosition = newScrollPosition
+    if (!lastScrolledPosition || to !== element[direction]) {
       element[direction] = newScrollPosition
+      lastScrolledPosition = newScrollPosition
+    } else {
+      isAnimating = false
+      if (callback) {
+        callback(ANIMATION_CANCEL)
+      }
     }
 
     if (now > animationStartTime + duration) {
