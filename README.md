@@ -28,7 +28,7 @@ import scrollToWithAnimation from 'scrollto-with-animation'
 ### or as a script
 
 ```html
-<script src="https://unpkg.com/scrollto-with-animation@4.4.0/dist/scrollto-with-animation.min.js"></script>
+<script src="https://unpkg.com/scrollto-with-animation@4.3.3/dist/scrollto-with-animation.min.js"></script>
 ```
 
 ### Example
