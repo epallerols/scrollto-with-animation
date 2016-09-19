@@ -26,12 +26,10 @@
     "compile:prod": "npm run clean; babel ./src --out-dir ./dist",
     "test:dev": "karma start cfg/karma.config.js --auto-watch",
     "test": "karma start cfg/karma.config.js --single-run",
-    "prepublish": "npm run compile:prod"
+    "build": "npm run compile:prod %&& npm run minify:prod",
+    "prepublish": "npm run build"
   },
   "pre-push": [
-    "minify:prod"
-  ],
-  "pre-commit": [
     "test"
   ],
   "bugs": {
