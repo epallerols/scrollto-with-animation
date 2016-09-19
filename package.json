@@ -1,6 +1,6 @@
 {
   "name": "scrollto-with-animation",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
   "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
   "license": "MIT",
