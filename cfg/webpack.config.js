@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ROOT_PATH = path.join(__dirname, '..')
 const ENTRY_PATH = path.join(ROOT_PATH, 'src')
-const DIST_PATH = path.join(ROOT_PATH, 'lib')
+const DIST_PATH = path.join(ROOT_PATH, 'dist')
 
 module.exports = {
   debug: true,

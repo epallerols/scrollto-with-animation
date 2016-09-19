@@ -22,14 +22,14 @@
     "clean": "rm -rf dist/*; rm -rf lib/",
     "minify:dev": "webpack --config cfg/webpack.config.js --watch",
     "minify:prod": "webpack -p --config cfg/webpack.config.js",
-    "compile:dev": "babel ./src --watch --out-dir ./dist",
-    "compile:prod": "npm run clean; babel ./src --out-dir ./dist",
+    "compile:dev": "babel src --watch --out-dir lib",
+    "compile:prod": "npm run clean; babel src --out-dir lib",
     "test:dev": "karma start cfg/karma.config.js --auto-watch",
     "test": "karma start cfg/karma.config.js --single-run",
-    "build": "npm run compile:prod %&& npm run minify:prod",
+    "build": "npm run compile:prod && npm run minify:prod",
     "prepublish": "npm run build"
   },
-  "pre-push": [
+  "pre-commit": [
     "test"
   ],
   "bugs": {
