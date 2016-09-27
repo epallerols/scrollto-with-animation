@@ -2,10 +2,11 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
 
-- Only **one dependency** *(for the [polyfill](https://www.npmjs.com/package/animation-frame))* for **rAF cross-browser**
-- **60 FPS** Animation
-- If user scrolls while animation is running, scroll animation would be immediately canceled
+- Using [**requestAnimationFrame**](https://dev.opera.com/articles/better-performance-with-requestanimationframe/)
+- Only **one dependency** to have **requestAnimationFrame cross-browser**
+- Runs the animation at **60 FPS**
 - Available adding **script or module**
+- If user scrolls while animation is running, scroll animation would be immediately canceled
 
 #### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
 
