@@ -1,8 +1,7 @@
-const webpackConfig = require('./../cfg/webpack.config')
+const webpackConfig = require('./webpack.config')
 
 module.exports = function (config) {
   config.set({
-    exclude: [],
     basePath: __dirname,
     files: [
       'test/**/*.js'
