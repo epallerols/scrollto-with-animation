@@ -1,11 +1,9 @@
-const webpackcfg = require('./../cfg/webpack.config')
-const path = require('path')
-const ROOT_PATH = path.join(__dirname, '..')
+const webpackConfig = require('./../cfg/webpack.config')
 
 module.exports = function (config) {
   config.set({
     exclude: [],
-    basePath: ROOT_PATH,
+    basePath: __dirname,
     files: [
       'test/**/*.js'
     ],
@@ -14,7 +12,7 @@ module.exports = function (config) {
       'test/**/*.js': ['webpack', 'sourcemap']
     },
     webpack: {
-      module: webpackcfg.module
+      module: webpackConfig.module
     },
     webpackMiddleware: {
       noInfo: true
@@ -35,7 +33,6 @@ module.exports = function (config) {
     browserNoActivityTimeout: 30000,
     colors: true,
     logColors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false
+    logLevel: config.LOG_INFO
   })
 }

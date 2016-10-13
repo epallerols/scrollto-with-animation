@@ -1,8 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const ROOT_PATH = path.join(__dirname, '..')
-const ENTRY_PATH = path.join(ROOT_PATH, 'src')
-const DIST_PATH = path.join(ROOT_PATH, 'dist')
 
 module.exports = {
   debug: true,
@@ -12,17 +9,25 @@ module.exports = {
     colors: true
   },
   entry: {
-    'scrollto-with-animation': [
-      ENTRY_PATH
-    ]
+    'scrollto-with-animation': 'src'
   },
   output: {
-    path: DIST_PATH,
+    path: 'dist',
     filename: '[name].min.js'
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].js.map'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compressor: {
+        screw_ie8: true,
+        warnings: false
+      },
+      output: {
+        comments: false
+      }
     })
   ],
   module: {
