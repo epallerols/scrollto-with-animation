@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
+  context: __dirname,
   debug: true,
   cache: false,
   process: true,
@@ -9,10 +10,10 @@ module.exports = {
     colors: true
   },
   entry: {
-    'scrollto-with-animation': 'src'
+    'scrollto-with-animation': path.join(__dirname, 'src')
   },
   output: {
-    path: 'dist',
+    path: path.join(__dirname, 'dist'),
     filename: '[name].min.js'
   },
   plugins: [
