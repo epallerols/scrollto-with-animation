@@ -32,7 +32,7 @@ module.exports = {
       loader: 'babel',
       query: {
         cacheDirectory: true,
-        presets: ['es2015', 'stage-0']
+        presets: ['es2015', 'stage-2']
       }
     }]
   }
