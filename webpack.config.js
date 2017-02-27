@@ -9,7 +9,7 @@ module.exports = {
     colors: true
   },
   entry: {
-    'scrollto-with-animation': path.join(__dirname, '.')
+    'scrollto-with-animation': path.join(__dirname, 'src')
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -39,6 +39,9 @@ module.exports = {
         cacheDirectory: true,
         presets: ['es2015', 'stage-2']
       }
+    }, {
+      test: /\.json/,
+      loader: 'json'
     }]
   }
 }

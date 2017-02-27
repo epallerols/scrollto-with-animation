@@ -1,6 +1,6 @@
 import easings from './easings'
 import RAF from 'animation-frame'
-import { name, version, respository } from './package.json'
+import { name, version, respository } from './../package.json'
 
 const rAF = new RAF()
 
