@@ -24,8 +24,8 @@
     "minify:prod": "NODE_ENV=prod webpack -p",
     "compile:dev": "NODE_ENV=dev babel src --watch --out-dir lib",
     "compile:prod": "NODE_ENV=prod babel src --out-dir lib",
-    "test:dev": "NODE_ENV=prod jest --watch",
-    "test": "NODE_ENV=prod jest",
+    "test:dev": "NODE_ENV=prod karma start cfg/karma.config.js --auto-watch",
+    "test": "NODE_ENV=prod karma start cfg/karma.config.js --single-run",
     "build": "npm run clean; npm run compile:prod && npm run minify:prod",
     "prepublish": "npm run build"
   },
