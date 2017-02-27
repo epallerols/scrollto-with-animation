@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  context: __dirname,
   debug: true,
   cache: false,
   process: true,
@@ -10,7 +9,7 @@ module.exports = {
     colors: true
   },
   entry: {
-    'scrollto-with-animation': path.join(__dirname, 'src')
+    'scrollto-with-animation': path.join(__dirname, '.')
   },
   output: {
     path: path.join(__dirname, 'dist'),

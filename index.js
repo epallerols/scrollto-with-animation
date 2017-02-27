@@ -1,10 +1,12 @@
 import easings from './easings'
 import AnimationFrame from 'animation-frame'
+import { name, version } from './package.json'
+
 const animationFrame = new AnimationFrame()
 
 const DEBUG = process.env.NODE_ENV || true
 const DEFAULT_ANIMATION = 'easeInQuad'
-const LIB_NAME = 'scrollto-with-animation'
+const LIB_NAME = '${name}@${version}'
 const GITHUB_URL = 'https://github.com/davesnx/scrollToWithAnimation'
 const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${GITHUB_URL}`
 const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${GITHUB_URL}`
@@ -19,7 +21,7 @@ const _window = typeof window !== 'undefined' ? window : {}
 const findAnimation = (transition = DEFAULT_ANIMATION) => {
   var animation = easings[transition]
   if (animation === undefined && DEBUG) {
-    throw new Error(TRANSITION_NOT_FOUND)
+    throw new TypeError(TRANSITION_NOT_FOUND)
   }
   return animation
 }
@@ -39,12 +41,13 @@ const scrollToWithAnimation = (
   transition = DEFAULT_ANIMATION,
   callback
 ) => {
+  let id
   let start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft
   let distance = to - start
   let animationStartTime = +new Date()
   let isAnimating = true
-  let lastScrolledPosition = null
-  let transitionFunction = null
+  let lastScrolledPosition
+  let transitionFunction
 
   if (typeof transition === 'string' || transition === null) {
     transitionFunction = findAnimation(transition)
@@ -67,6 +70,7 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_CANCEL)
+        animationFrame.cancel(id)
       }
     }
 
@@ -75,14 +79,15 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_END)
+        animationFrame.cancel(id)
       }
     }
 
     if (isAnimating) {
-      animationFrame.request(animateScroll)
+      id = animationFrame.request(animateScroll)
     }
   }
-  animationFrame.request(animateScroll)
+  id = animationFrame.request(animateScroll)
 }
 
 // Publish public method in window
@@ -91,4 +96,3 @@ if (_window !== {}) {
 }
 
 export default scrollToWithAnimation
-export {animationFrame}
