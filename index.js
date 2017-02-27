@@ -1,16 +1,15 @@
 import easings from './easings'
-import AnimationFrame from 'animation-frame'
-import { name, version } from './package.json'
+import RAF from 'animation-frame'
+import { name, version, respository } from './package.json'
 
-const animationFrame = new AnimationFrame()
+const rAF = new RAF()
 
 const DEBUG = process.env.NODE_ENV || true
 const DEFAULT_ANIMATION = 'easeInQuad'
-const LIB_NAME = '${name}@${version}'
-const GITHUB_URL = 'https://github.com/davesnx/scrollToWithAnimation'
-const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${GITHUB_URL}`
-const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${GITHUB_URL}`
-const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${GITHUB_URL}`
+const LIB_NAME = `${name}@${version}`
+const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${respository.url}`
+const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${respository.url}`
+const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${respository.url}`
 
 const ANIMATION_CANCEL = 'animation-cancel'
 const ANIMATION_END = 'animation-end'
@@ -70,7 +69,7 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_CANCEL)
-        animationFrame.cancel(id)
+        rAF.cancel(id)
       }
     }
 
@@ -79,15 +78,16 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_END)
-        animationFrame.cancel(id)
+        rAF.cancel(id)
       }
     }
 
     if (isAnimating) {
-      id = animationFrame.request(animateScroll)
+      id = rAF.request(animateScroll)
     }
   }
-  id = animationFrame.request(animateScroll)
+
+  id = rAF.request(animateScroll)
 }
 
 // Publish public method in window
@@ -96,3 +96,4 @@ if (_window !== {}) {
 }
 
 export default scrollToWithAnimation
+export { rAF }

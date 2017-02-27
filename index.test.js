@@ -1,4 +1,4 @@
-import scrollTo from './index.js'
+import scrollto, { rAF } from './../src/index'
 
 const D = document
 const TO = 0
@@ -15,43 +15,40 @@ const TRANSITION_EQ_KO = () => {}
 //   DOMNode.dispatchEvent(evt)
 // }
 
-describe(`#findAnimation`, () => {
-  it(`should throw an exception with an incorrect transition`, () => {
-    const func = () => scrollTo(D, DIRECTION, TO, DURATION, TRANSITION_KO)
+describe(`#findAnimation when you pass`, () => {
+  it(`an incorrect transition should throw an exception`, () => {
+    const func = () => scrollto(D, DIRECTION, TO, DURATION, TRANSITION_KO)
     expect(func).toThrow()
   })
 
-  it(`shouldn't throw an exception with a correct transition `, () => {
-    const func = () => scrollTo(D, DIRECTION, TO, DURATION, TRANSITION_OK)
+  it(`a correct transition shouldn't throw an exception`, () => {
+    const func = () => scrollto(D, DIRECTION, TO, DURATION, TRANSITION_OK)
     expect(func).not.toThrow()
   })
 })
 
-describe(`#defineAnimation`, () => {
-  it(`should throw an exception with an easing is not correct`, () => {
-    const func = () => scrollTo(D, DIRECTION, TO, DURATION, TRANSITION_EQ_KO)
+describe(`#defineAnimation when you pass an easing function`, () => {
+  it(`that isn't correct should throw an exception`, () => {
+    const func = () => scrollto(D, DIRECTION, TO, DURATION, TRANSITION_EQ_KO)
     expect(func).toThrow()
   })
 
-  it(`shouldn't throw an exception if easing is is correct `, () => {
-    const func = () => scrollTo(D, DIRECTION, TO, DURATION, TRANSITION_EQ_OK)
+  it(`that is correct shouldn't throw an exception`, () => {
+    const func = () => scrollto(D, DIRECTION, TO, DURATION, TRANSITION_EQ_OK)
     expect(func).not.toThrow()
   })
 })
 
-jest.mock('animation-frame')
-
-rAF.request = () => jest.fn()
-rAF.cancel = () => jest.fn()
-
-describe(`#scrollToWithAnimation`, () => {
+describe(`#do the scrollto with animation`, () => {
   it(`should call animationFrame.request`, () => {
-    scrollTo()
+    rAF.request = jasmine.createSpy('animationFrameSpy')
+    scrollto()
     expect(rAF.request).toHaveBeenCalled()
   })
 
-  it(`should call the callback at the end`, () => {
-    scrollTo(D, TO, DURATION, TRANSITION_OK, cbSpy)
-    expect(rAF.request).toHaveBeenCalled()
-  })
+//   it(`should call the callback at the end`, () => {
+//     const cbSpy = jasmine.createSpy('cbSpy')
+//     scrollto(D, TO, DURATION, TRANSITION_OK, cbSpy)
+//     expect(cbSpy).toHaveBeenCalled()
+//   })
 })
