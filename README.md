@@ -5,11 +5,11 @@
 - Using [**requestAnimationFrame**](https://dev.opera.com/articles/better-performance-with-requestanimationframe/)
 - **3.2k** minified and gzipped
 - Runs the animation at **60 FPS**
-- Available adding **script or module**
+- Available as a **script or UMD**
 - Only **one dependency** to have **requestAnimationFrame cross-browser**
 - If user scrolls while animation is running, scroll animation would be immediately canceled
 
-#### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
+#### [Live demo](http://scrollto-with-animation.surge.sh/)
 
 ## Install
 
@@ -19,11 +19,11 @@ npm install scrollto-with-animation --save
 
 ## Usage
 
-### Available as a module
+### Available as a [UMD](https://github.com/umdjs/umd)
 
 ```javascript
 var scrollToWithAnimation = require('scrollto-with-animation')
-// or ES2015
+// or ES6+
 import scrollToWithAnimation from 'scrollto-with-animation'
 ```
 
@@ -81,7 +81,7 @@ This will scroll to top of the page and the animation will run for 10 seconds (1
 - `easeOutCirc`
 - `easeInOutCirc`
 
-> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollToWithAnimation/blob/master/src/easings.js) open a Pull request!
+> Feel free to add more ease functions to [easings.js](https://github.com/davesnx/scrollToWithAnimation/blob/master/easings.js) open a Pull request!
 
 ## License
 
