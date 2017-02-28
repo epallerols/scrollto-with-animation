@@ -1,15 +1,15 @@
 import easings from './easings'
 import RAF from 'animation-frame'
-import { name, version, respository } from './../package.json'
+import { name, version, repository } from './../package.json'
 
 const rAF = new RAF()
 
 const DEBUG = process.env.NODE_ENV || true
 const DEFAULT_ANIMATION = 'easeInQuad'
 const LIB_NAME = `${name}@${version}`
-const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${respository.url}`
-const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${respository.url}`
-const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${respository.url}`
+const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${repository.url}`
+const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${repository.url}`
+const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${repository.url}`
 
 const ANIMATION_CANCEL = 'animation-cancel'
 const ANIMATION_END = 'animation-end'
@@ -20,14 +20,14 @@ const _window = typeof window !== 'undefined' ? window : {}
 const findAnimation = (transition = DEFAULT_ANIMATION) => {
   var animation = easings[transition]
   if (animation === undefined && DEBUG) {
-    throw new TypeError(TRANSITION_NOT_FOUND)
+    throw new Error(TRANSITION_NOT_FOUND)
   }
   return animation
 }
 
 const defineAnimation = (transition) => {
   if (transition.length !== 4 && DEBUG) {
-    throw new TypeError(ANIMATION_NOT_VALID)
+    throw new Error(ANIMATION_NOT_VALID)
   }
   return transition
 }
@@ -53,7 +53,7 @@ const scrollToWithAnimation = (
   } else if (typeof transition === 'function') {
     transitionFunction = defineAnimation(transition)
   } else {
-    throw new TypeError(TRANSITION_NOT_VALID)
+    throw new Error(TRANSITION_NOT_VALID)
   }
 
   const animateScroll = () => {
