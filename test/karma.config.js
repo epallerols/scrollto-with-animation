@@ -1,18 +1,16 @@
-const webpackConfig = require('./webpack.config')
+const webpackConfig = require('./../webpack.config')
 
-module.exports = function (config) {
+module.exports = (config) => {
   config.set({
     basePath: __dirname,
     files: [
-      'test/**/*.js'
+      '**/*.test.js'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'test/**/*.js': ['webpack', 'sourcemap']
+      '**/*.test.js': ['webpack', 'sourcemap']
     },
-    webpack: {
-      module: webpackConfig.module
-    },
+    webpack: { module: webpackConfig.module },
     webpackMiddleware: {
       noInfo: true
     },

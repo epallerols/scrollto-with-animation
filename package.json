@@ -1,8 +1,8 @@
 {
   "name": "scrollto-with-animation",
-  "version": "4.3.3",
+  "version": "4.4.4",
   "author": "David Sancho <dsnxmoreno@gmail.com> (https://github.com/davesnx)",
-  "description": "Animated Scroll with requestAnimationFrame. For smoothly animating scroll defining the easing, running at 60FPS and cross-browser",
+  "description": "Animated Scroll with requestAnimationFrame. For smooth animate scrollTo defining the easing, running at 60FPS and cross-browser",
   "license": "MIT",
   "main": "lib/index.js",
   "repository": {
@@ -19,14 +19,14 @@
     "browserify"
   ],
   "scripts": {
-    "clean": "rm -rf dist/*; rm -rf lib/",
-    "minify:dev": "webpack --watch",
-    "minify:prod": "webpack -p",
-    "compile:dev": "babel src --watch --out-dir lib",
-    "compile:prod": "babel src --out-dir lib",
-    "test:dev": "karma start karma.config.js --auto-watch",
-    "test": "karma start karma.config.js --single-run",
-    "build": "npm run clean; npm run compile:prod && npm run minify:prod",
+    "clean": "rm -rf dist/* && rm -rf lib/",
+    "minify:dev": "NODE_ENV=dev webpack --watch",
+    "minify:prod": "NODE_ENV=prod webpack -p",
+    "compile:dev": "NODE_ENV=dev babel src --watch --out-dir lib",
+    "compile:prod": "NODE_ENV=prod babel src --out-dir lib",
+    "test:dev": "NODE_ENV=prod karma start test/karma.config.js --auto-watch",
+    "test": "NODE_ENV=prod karma start test/karma.config.js --single-run",
+    "build": "npm run clean && npm run compile:prod && npm run minify:prod",
     "prepublish": "npm run build"
   },
   "pre-commit": [
@@ -44,6 +44,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-2": "^6.3.13",
     "jasmine-core": "^2.3.4",
+    "json-loader": "^0.5.4",
     "karma": "^0.13.9",
     "karma-chrome-launcher": "^0.2.1",
     "karma-cli": "0.1.0",

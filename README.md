@@ -1,11 +1,12 @@
 ![](docs/Logo.png)
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
+[![Build Status](https://travis-ci.org/davesnx/scrollto-with-animation.svg?branch=master)](https://travis-ci.org/sindresorhus/normalize-url) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
 
 - Using [**requestAnimationFrame**](https://dev.opera.com/articles/better-performance-with-requestanimationframe/)
-- Only **one dependency** to have **requestAnimationFrame cross-browser**
+- **3.2k** minified and gzipped
 - Runs the animation at **60 FPS**
 - Available adding **script or module**
+- Only **one dependency** to have **requestAnimationFrame cross-browser**
 - If user scrolls while animation is running, scroll animation would be immediately canceled
 
 #### [Live demo](https://davesnx.github.io/scrollto-with-animation/docs/demo/index.html)
@@ -29,7 +30,7 @@ import scrollToWithAnimation from 'scrollto-with-animation'
 ### or as a script
 
 ```html
-<script src="https://unpkg.com/scrollto-with-animation@4.3.3/dist/scrollto-with-animation.min.js"></script>
+<script src="https://unpkg.com/scrollto-with-animation/dist/scrollto-with-animation.min.js"></script>
 ```
 
 ### Example

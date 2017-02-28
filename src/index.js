@@ -1,14 +1,15 @@
 import easings from './easings'
-import AnimationFrame from 'animation-frame'
-const animationFrame = new AnimationFrame()
+import RAF from 'animation-frame'
+import { name, version, repository } from './../package.json'
+
+const rAF = new RAF()
 
 const DEBUG = process.env.NODE_ENV || true
 const DEFAULT_ANIMATION = 'easeInQuad'
-const LIB_NAME = 'scrollto-with-animation'
-const GITHUB_URL = 'https://github.com/davesnx/scrollToWithAnimation'
-const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${GITHUB_URL}`
-const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${GITHUB_URL}`
-const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${GITHUB_URL}`
+const LIB_NAME = `${name}@${version}`
+const TRANSITION_NOT_FOUND = `${LIB_NAME}: Transition not found - ${repository.url}`
+const ANIMATION_NOT_VALID = `${LIB_NAME}: callback transition don't look like a valid equation - ${repository.url}`
+const TRANSITION_NOT_VALID = `${LIB_NAME}: Transition isn't string or Function - ${repository.url}`
 
 const ANIMATION_CANCEL = 'animation-cancel'
 const ANIMATION_END = 'animation-end'
@@ -26,7 +27,7 @@ const findAnimation = (transition = DEFAULT_ANIMATION) => {
 
 const defineAnimation = (transition) => {
   if (transition.length !== 4 && DEBUG) {
-    throw new TypeError(ANIMATION_NOT_VALID)
+    throw new Error(ANIMATION_NOT_VALID)
   }
   return transition
 }
@@ -39,19 +40,20 @@ const scrollToWithAnimation = (
   transition = DEFAULT_ANIMATION,
   callback
 ) => {
+  let id
   let start = direction === 'scrollTop' ? element.scrollTop : element.scrollLeft
   let distance = to - start
   let animationStartTime = +new Date()
   let isAnimating = true
-  let lastScrolledPosition = null
-  let transitionFunction = null
+  let lastScrolledPosition
+  let transitionFunction
 
   if (typeof transition === 'string' || transition === null) {
     transitionFunction = findAnimation(transition)
   } else if (typeof transition === 'function') {
     transitionFunction = defineAnimation(transition)
   } else {
-    throw new TypeError(TRANSITION_NOT_VALID)
+    throw new Error(TRANSITION_NOT_VALID)
   }
 
   const animateScroll = () => {
@@ -67,6 +69,7 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_CANCEL)
+        rAF.cancel(id)
       }
     }
 
@@ -75,14 +78,16 @@ const scrollToWithAnimation = (
       isAnimating = false
       if (callback) {
         callback(ANIMATION_END)
+        rAF.cancel(id)
       }
     }
 
     if (isAnimating) {
-      animationFrame.request(animateScroll)
+      id = rAF.request(animateScroll)
     }
   }
-  animationFrame.request(animateScroll)
+
+  id = rAF.request(animateScroll)
 }
 
 // Publish public method in window
@@ -91,4 +96,4 @@ if (_window !== {}) {
 }
 
 export default scrollToWithAnimation
-export {animationFrame}
+export { rAF }

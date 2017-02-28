@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  context: __dirname,
   debug: true,
   cache: false,
   process: true,
@@ -40,6 +39,9 @@ module.exports = {
         cacheDirectory: true,
         presets: ['es2015', 'stage-2']
       }
+    }, {
+      test: /\.json/,
+      loader: 'json'
     }]
   }
 }
