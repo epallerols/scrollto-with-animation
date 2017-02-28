@@ -1,6 +1,6 @@
 ![](docs/Logo.png)
 
-[![Build Status](https://travis-ci.org/davesnx/scrollto-with-animation.svg?branch=master)](https://travis-ci.org/sindresorhus/normalize-url) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
+[![Build Status](https://travis-ci.org/davesnx/scrollto-with-animation.svg?branch=master)] [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/scrollto-with-animation)
 
 - Using [**requestAnimationFrame**](https://dev.opera.com/articles/better-performance-with-requestanimationframe/)
 - **3.2k** minified and gzipped
