@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - '6'
+
+deploy:
+  provider: surge
+  project: ./public/
+  domain: scrollto-with-animation.surge.sh
