@@ -9,6 +9,12 @@
     "type": "git",
     "url": "https://github.com/davesnx/scrollto-with-animation"
   },
+  "files": [
+    "src",
+    "lib",
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "animation",
     "scrollTo",
