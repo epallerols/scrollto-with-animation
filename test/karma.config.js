@@ -4,11 +4,11 @@ module.exports = (config) => {
   config.set({
     basePath: __dirname,
     files: [
-      '**/*.js'
+      '**/*.test.js'
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      '**/*.js': ['webpack', 'sourcemap']
+      '**/*.test.js': ['webpack', 'sourcemap']
     },
     webpack: { module: webpackConfig.module },
     webpackMiddleware: {

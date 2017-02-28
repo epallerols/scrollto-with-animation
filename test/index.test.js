@@ -9,12 +9,6 @@ const TRANSITION_KO = 'flowInOutFly'
 const TRANSITION_EQ_OK = (a, b, c, d) => a + b + c + d
 const TRANSITION_EQ_KO = () => {}
 
-// const simulateScroll = (DOMNode) => {
-//   var evt = window.document.createEvent('UIEvents')
-//   evt.initUIEvent('scroll', true, true, window, 1)
-//   DOMNode.dispatchEvent(evt)
-// }
-
 describe(`#findAnimation when you pass`, () => {
   it(`an incorrect transition should throw an exception`, () => {
     const func = () => scrollto(D, DIRECTION, TO, DURATION, TRANSITION_KO)
@@ -45,10 +39,4 @@ describe(`#do the scrollto with animation`, () => {
     scrollto()
     expect(rAF.request).toHaveBeenCalled()
   })
-
-//   it(`should call the callback at the end`, () => {
-//     const cbSpy = jasmine.createSpy('cbSpy')
-//     scrollto(D, TO, DURATION, TRANSITION_OK, cbSpy)
-//     expect(cbSpy).toHaveBeenCalled()
-//   })
 })
