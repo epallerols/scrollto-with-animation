@@ -41,3 +41,4 @@ build/Release # Compiled binary addons (http://nodejs.org/api/addons.html)
 
 dist
 lib
+src/package-info.json
